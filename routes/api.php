@@ -27,6 +27,11 @@ Route::group(['prefix' => 'v1/auth', 'middleware' => 'auth:sanctum'], function (
     Route::get('/{user}', [AuthController::class, 'getUser'])->name('api.v1.auth.getUser');
 });
 
+/* Thread routes */
+Route::group(['prefix' => 'v1/threads'], function () {
+    Route::get('/', [ThreadController::class, 'index'])->name('api.v1.threads.index');
+});
+
 /* Thread routes with authentication */
 Route::group(['prefix' => 'v1/threads', 'middleware' => 'auth:sanctum'], function () {
     Route::post('/', [ThreadController::class, 'create'])->name('api.v1.threads.create');

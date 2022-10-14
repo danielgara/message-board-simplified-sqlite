@@ -76,4 +76,18 @@ class ThreadController extends BaseController
 
         return $this->sendResponse($responseData);
     }
+
+    /**
+     * Return json response with threads.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function index(): JsonResponse
+    {
+        $threads = Thread::paginate(2);
+
+        $responseData['threads'] = $threads;
+
+        return $this->sendResponse($responseData);
+    }
 }

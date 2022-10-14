@@ -36,11 +36,11 @@ class UserThreadMessageController extends BaseController
             ],
         ));
 
-        $newJob = new ProcessMessageJob($thread->id);
+        /*$newJob = new ProcessMessageJob($thread->id);
         if ($newJob->threadId != 0) {
             $processMessageJob = $newJob->delay(Carbon::now()->addMinutes(1));
             dispatch($processMessageJob);
-        }
+        }*/
 
         $responseData = [];
         $responseData['message'] = new MessageResource($message);
